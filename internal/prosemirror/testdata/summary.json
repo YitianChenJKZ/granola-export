@@ -1,0 +1,93 @@
+{
+  "type": "doc",
+  "content": [
+    {"type": "heading", "attrs": {"level": 3}, "content": [{"type": "text", "text": "Budget review"}]},
+    {"type": "paragraph", "attrs": {"id": "p1"}},
+    {"type": "paragraph", "content": [
+      {"type": "text", "text": "We agreed to "},
+      {"type": "text", "text": "cut spend ", "marks": [{"type": "bold"}]},
+      {"type": "text", "text": "by 10%", "marks": [{"type": "bold"}, {"type": "italic"}]},
+      {"type": "text", "text": " and review in "},
+      {"type": "text", "text": "the tracker", "marks": [{"type": "link", "attrs": {"href": "https://example.com/budget (v2)"}}]},
+      {"type": "text", "text": "."}
+    ]},
+    {"type": "bulletList", "content": [
+      {"type": "listItem", "content": [
+        {"type": "paragraph", "content": [{"type": "text", "text": "Marketing"}]},
+        {"type": "bulletList", "content": [
+          {"type": "listItem", "content": [
+            {"type": "paragraph", "content": [{"type": "text", "text": "Pause the [[Q4]] campaign"}]},
+            {"type": "bulletList", "content": [
+              {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Owner: snake_case_name *tbc*"}]}]}
+            ]}
+          ]},
+          {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Keep events"}]}]}
+        ]}
+      ]},
+      {"type": "listItem", "content": [
+        {"type": "paragraph", "content": [{"type": "text", "text": "Engineering"}]},
+        {"type": "paragraph", "content": [{"type": "text", "text": "No change this quarter."}]}
+      ]},
+      {"type": "listItem"}
+    ]},
+    {"type": "orderedList", "attrs": {"start": 3}, "content": [
+      {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Draft"}]}]},
+      {"type": "listItem", "content": [
+        {"type": "paragraph", "content": [{"type": "text", "text": "Review"}]},
+        {"type": "orderedList", "content": [
+          {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Finance"}]}]}
+        ]}
+      ]}
+    ]},
+    {"type": "taskList", "content": [
+      {"type": "taskItem", "attrs": {"checked": true}, "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Send recap"}]}]},
+      {"type": "taskItem", "attrs": {"checked": false}, "content": [
+        {"type": "paragraph", "content": [{"type": "text", "text": "Book follow-up"}]},
+        {"type": "bulletList", "content": [
+          {"type": "listItem", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "With finance"}]}]}
+        ]}
+      ]}
+    ]},
+    {"type": "blockquote", "content": [
+      {"type": "paragraph", "content": [{"type": "text", "text": "Spend less, "}, {"type": "text", "text": "ship more", "marks": [{"type": "strike"}]}, {"type": "text", "text": " ship the same."}]},
+      {"type": "paragraph", "content": [{"type": "text", "text": "The CFO"}]}
+    ]},
+    {"type": "codeBlock", "attrs": {"language": "sql"}, "content": [{"type": "text", "text": "SELECT *\nFROM spend\nWHERE q = 4;"}]},
+    {"type": "horizontalRule"},
+    {"type": "paragraph", "content": [
+      {"type": "text", "text": "Run "},
+      {"type": "text", "text": "make *all*", "marks": [{"type": "code"}]},
+      {"type": "text", "text": " first", "marks": [{"type": "highlight"}]},
+      {"type": "hardBreak"},
+      {"type": "text", "text": "# not a heading"},
+      {"type": "hardBreak"},
+      {"type": "text", "text": "1. not a list"},
+      {"type": "hardBreak"}
+    ]},
+    {"type": "table", "content": [
+      {"type": "tableRow", "content": [
+        {"type": "tableHeader", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Team"}]}]},
+        {"type": "tableHeader", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Change"}]}]}
+      ]},
+      {"type": "tableRow", "content": [
+        {"type": "tableCell", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Marketing"}]}]},
+        {"type": "tableCell", "content": [
+          {"type": "paragraph", "content": [{"type": "text", "text": "-10% | paused"}]},
+          {"type": "paragraph", "content": [{"type": "text", "text": "from Q4"}]}
+        ]}
+      ]},
+      {"type": "tableRow", "content": [
+        {"type": "tableCell", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Engineering"}]}]}
+      ]}
+    ]},
+    {"type": "image", "attrs": {"src": "https://example.com/chart.png", "alt": "Spend chart"}},
+    {"type": "image", "attrs": {"src": "data:image/png;base64,AAAA", "alt": "inline"}},
+    {"type": "customCallout", "content": [
+      {"type": "paragraph", "content": [
+        {"type": "text", "text": "Ask "},
+        {"type": "mention", "attrs": {"id": "u1", "label": "@Raisin"}},
+        {"type": "text", "text": " about <almond> milk"}
+      ]}
+    ]}
+  ]
+}
