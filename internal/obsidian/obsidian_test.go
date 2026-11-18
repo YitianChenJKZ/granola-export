@@ -164,7 +164,9 @@ func TestSanitizeTitle(t *testing.T) {
 	cases := map[string]string{
 		"Quarterly budget review":      "Quarterly budget review",
 		"Q3: Budget/Plan <draft>":      "Q3 Budget-Plan draft",
-		`1:1 Oat | Raisin "sync"?`:     "11 Oat - Raisin sync",
+		`1:1 Oat | Raisin "sync"?`:     "1-1 Oat - Raisin sync",
+		"Standup 10:30: notes":         "Standup 10-30 notes",
+		"Trailing colon:":              "Trailing colon",
 		"Design [v2] #urgent ^block":   "Design v2 urgent block",
 		"  spaced \t out\nlines  ":     "spaced out lines",
 		"...hidden.":                   "hidden",

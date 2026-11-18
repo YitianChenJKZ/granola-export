@@ -188,11 +188,18 @@ func yamlID(id string) string {
 // links to the note.
 func SanitizeTitle(title string) string {
 	var b strings.Builder
-	for _, r := range title {
+	runes := []rune(title)
+	for i, r := range runes {
 		switch {
 		case r == '/' || r == '\\' || r == '|':
 			b.WriteRune('-')
-		case strings.ContainsRune(`*"<>:?#^[]`, r):
+		case r == ':':
+			// "1:1" and "10:30" keep a separator; "Topic: detail" does not
+			// need one.
+			if i > 0 && i < len(runes)-1 && !unicode.IsSpace(runes[i-1]) && !unicode.IsSpace(runes[i+1]) {
+				b.WriteRune('-')
+			}
+		case strings.ContainsRune(`*"<>?#^[]`, r):
 		case unicode.IsSpace(r):
 			b.WriteRune(' ')
 		case unicode.IsControl(r) || r == utf8.RuneError:
@@ -201,7 +208,7 @@ func SanitizeTitle(title string) string {
 		}
 	}
 	clean := strings.Join(strings.Fields(b.String()), " ")
-	runes := []rune(clean)
+	runes = []rune(clean)
 	if len(runes) > maxTitleRunes {
 		runes = runes[:maxTitleRunes]
 	}
