@@ -151,6 +151,40 @@ func LoadCache(path string) (*Cache, error) {
 	return c, nil
 }
 
+// CacheStats counts what a cache holds, for diagnostics.
+type CacheStats struct {
+	Documents      int
+	Unreadable     int
+	Deleted        int
+	WithTypedNotes int
+	WithPanels     int
+	WithTranscript int
+}
+
+func (c *Cache) Stats() CacheStats {
+	s := CacheStats{Documents: len(c.Documents)}
+	for id, raw := range c.Documents {
+		n, err := parseDocument(raw, id)
+		if err != nil {
+			s.Unreadable++
+			continue
+		}
+		if n.Deleted {
+			s.Deleted++
+		}
+		if n.NotesMarkdown != "" {
+			s.WithTypedNotes++
+		}
+		if panels, err := parsePanels(c.Panels[id]); err == nil && len(panels) > 0 {
+			s.WithPanels++
+		}
+		if segments, err := parseTranscript(c.Transcripts[id]); err == nil && len(segments) > 0 {
+			s.WithTranscript++
+		}
+	}
+	return s
+}
+
 // CacheSource reads notes from the cache file the Granola app keeps on disk.
 type CacheSource struct {
 	Dir string
